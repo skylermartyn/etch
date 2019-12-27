@@ -1,33 +1,36 @@
 const html = document.querySelector('html');
-html.setAttribute('height', '1000px');
-html.setAttribute('width', '1000px');
+html.style.height = '1000px';
+html.style.width = '1000px';
 
 const container = document.querySelector('#container');
 
 const body = document.querySelector('body');
-body.setAttribute('height', '1000px');
-body.setAttribute('width', '1000px');
+body.style.height = '1000px';
+body.style.width = '1000px';
+
 const gridBody = document.createElement('div');
-gridBody.setAttribute('display', 'grid');
-gridBody.setAttribute('grid-template-columns', '100px 100px 100px 100px');
-gridBody.setAttribute('grid-template-rows', '100px 100px 100px 100px');
-gridBody.setAttribute('grid-gap', '5px')
+gridBody.style.display = 'grid';
+gridBody.style.gridTemplateColumns = '100px'.repeat(16);
+gridBody.style.gridTemplateRows = '100px'.repeat(16);
+gridBody.style.gridGap = '5px';
 
 const gridCells = [];
 
-for (let row = 1; row < 5; row++) {
-    for (let col = 1; col < 5; col++) {
+for (let row = 1; row < 17; row++) {
+    for (let col = 1; col < 17; col++) {
         const newCell = document.createElement('div');
-        newCell.setAttribute('grid-row', `${row} / ${row + 1}`);
-        newCell.setAttribute('grid-column', `${col} / ${col + 1}`);
+        newCell.style.gridRow = `${row} / ${row + 1}`
+        newCell.style.gridColumn = `${col} / ${col + 1}`
 
-        newCell.setAttribute("background-color", 'pink');
-        newCell.setAttribute('width', '80px');
-        newCell.setAttribute('height', '80px');
-        newCell.setAttribute('margin', 'auto');
+        newCell.style.backgroundColor = 'pink';
+        newCell.style.width = '80px';
+        newCell.style.height = '80px';
+        newCell.style.margin = 'auto';
         gridCells.push(newCell);
     }
 }
+
+console.log(gridCells.length);
 
 for (x = 0; x < gridCells.length; x++) {
     gridBody.appendChild(gridCells[x]);
