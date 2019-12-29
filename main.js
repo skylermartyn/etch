@@ -1,7 +1,8 @@
 // Number of squares per side
-const gridFid = 16;
+let gridFid = 16;
 // Width of each square
-const gridSide = Math.floor(960 / gridFid);
+let gridSide = Math.floor(960 / gridFid);
+let gridSidePixels = gridSide.toString() + 'px';
 // Grid cells array
 const gridCells = [];
 
@@ -12,6 +13,21 @@ const body = document.querySelector('body');
 const footer = document.querySelector('footer');
 const drawingBoard = document.querySelector('#drawing-board');
 const html = document.querySelector('html');
+
+
+// Drawing board config
+drawingBoard.style.display = 'grid';
+// Create dynamic string for gridTemplateRows/Columns style
+let gridSquareTemplate = '';
+for (x = 0; x < gridFid; x++) {
+    if (x < gridFid - 1) {
+        gridSquareTemplate += gridSidePixels + ' ';
+    } else {
+        gridSquareTemplate += gridSidePixels;
+    }
+}
+drawingBoard.style.gridTemplateRows = gridSquareTemplate;
+drawingBoard.style.gridTemplateColumns = gridSquareTemplate;
 
 
 // Reset button
@@ -30,7 +46,8 @@ html.style.height = '1000px';
 html.style.width = '1000px';
 
 
-drawingBoard.style.size = '960px 960px';
+drawingBoard.style.height = '960px';
+drawingBoard.style.width = '960px';
 
 
 body.style.height = '1000px';
@@ -45,8 +62,10 @@ for (let row = 1; row < 16 + 1; row++) {
         newCell.style.gridColumn = `${col} / ${col + 1}`
 
         
-        newCell.style.size = `${gridSide} ${gridSide}`;
+        newCell.style.height = gridSidePixels;
+        newCell.style.width = gridSidePixels;
         newCell.style.backgroundColor = 'pink';
+        newCell.style.transitionDuration = '0.5s';
         newCell.addEventListener('mouseover', (e) => {
             if (e.target.style.backgroundColor !== 'black') {
                 e.target.style.backgroundColor = 'black';

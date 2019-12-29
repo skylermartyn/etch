@@ -1,12 +1,2 @@
-#drawing-board {
-    display: grid;
-    grid-template-columns: repeat(16, 100px);
-    grid-template-rows: repeat(16, 100px);
-}
 
-.square {
-    background-color: pink;
-    size: 80px 80px;
-    transition-duration: .5s;
-}
 
