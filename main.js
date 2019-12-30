@@ -1,8 +1,10 @@
 // Number of squares per side
 let gridFid = 100;
-// Width of each square
-let gridSide = Math.floor(960 / gridFid);
-let gridSidePixels = gridSide.toString() + 'px';
+// Width of each square (as a percent of drawing board)
+let gridSide = Number(Math.round((gridFid / 960) + 'e4') + 'e-3');
+console.log(gridSide);
+// Stringify gridSide for styling
+let gridSidePercent = gridSide.toString() + '%';
 
 
 
@@ -23,9 +25,9 @@ function renderBoard () {
     let gridSquareTemplate = '';
     for (x = 0; x < gridFid; x++) {
         if (x < gridFid - 1) {
-            gridSquareTemplate += gridSidePixels + ' ';
+            gridSquareTemplate += gridSidePercent + ' ';
         } else {
-            gridSquareTemplate += gridSidePixels;
+            gridSquareTemplate += gridSidePercent;
         }
     }
     drawingBoard.style.gridTemplateRows = gridSquareTemplate;
@@ -88,8 +90,8 @@ function renderPixels () {
             newCell.style.gridColumn = `${col} / ${col + 1}`
 
             
-            newCell.style.height = gridSidePixels;
-            newCell.style.width = gridSidePixels;
+            //newCell.style.height = gridSidePercent;
+            //newCell.style.width = gridSidePercent;
             newCell.style.backgroundColor = 'pink';
             newCell.style.transitionDuration = '0.5s';
             newCell.addEventListener('mouseover', (e) => {
