@@ -1,2 +1,21 @@
+button {
+    background-color: teal;
+    color: white;
+    border-radius: 8%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: teal;
+    transition-duration: 0.25s;
+    font-size: 18px;
+}
 
+button:hover {
+    background-color: white;
+    color: teal;
+    border-radius: 8%;
+    border-width: 2px;
+    border-style: solid;
+    border-color: teal;
+    font-size: 18px;
+}
 

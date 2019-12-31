@@ -117,7 +117,7 @@ const resetButton = document.createElement('button');
 resetButton.textContent = 'Reset Board';
 resetButton.style.float = 'right';
 resetButton.style.height = '50px';
-resetButton.style.marginTop = '35px';
+resetButton.style.marginTop = '38px';
 resetButton.style.marginRight = '20px';
 
 resetButton.addEventListener('click', () => {
@@ -131,7 +131,7 @@ const gridFidButton = document.createElement('button');
 gridFidButton.textContent = 'Change Pixel Density';
 gridFidButton.style.float = 'right';
 gridFidButton.style.height = '50px';
-gridFidButton.style.marginTop = '35px';
+gridFidButton.style.marginTop = '38px';
 
 gridFidButton.addEventListener('click', () => {
     let newGridFid = NaN;
