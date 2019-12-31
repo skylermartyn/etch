@@ -105,7 +105,7 @@ const gridFidButton = document.createElement('button');
 gridFidButton.textContent = 'Change Pixel Density'
 gridFidButton.addEventListener('click', () => {
     let newGridFid = NaN;
-    while (isNaN(newGridFid)) {
+    while (isNaN(newGridFid) || newGridFid < 0 || newGridFid > 100) {
         newGridFid = Number(prompt('Enter desired number of squares per side(1 - 100):', '16'));
     }
 
