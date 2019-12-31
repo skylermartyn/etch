@@ -14,8 +14,10 @@ const html = document.querySelector('html');
 //html.style.width = '100%';
 
 const header = document.querySelector('header');
+header.style.lineHeight = '130px';
 header.style.height = '130px';
-header.style.verticalAlign = 'center';
+header.style.width = '940px';
+header.style.margin = 'auto';
 
 const body = document.querySelector('body');
 body.style.width = '100%';
@@ -30,6 +32,8 @@ drawingBoard.style.display = 'grid';
 drawingBoard.style.height = '960px';
 drawingBoard.style.width = '960px';
 drawingBoard.style.margin = 'auto';
+drawingBoard.style.borderStyle = 'solid';
+drawingBoard.style.borderWidth = '20px';
 
 // Create page title for browser window/tab
 const title = document.createElement('title');
@@ -39,7 +43,11 @@ header.appendChild(title);
 // Create page title & subtitle for header
 const pageTitle = document.createElement('h1');
 pageTitle.textContent = 'Etch a Sketch!';
+pageTitle.style.margin = 'auto';
 pageTitle.style.fontFamily = 'Helvetica';
+pageTitle.style.float = 'left';
+pageTitle.style.fontSize = '36pt';
+
 header.appendChild(pageTitle);
 
 ///////////////////////////////////////////////
@@ -107,16 +115,24 @@ function renderDrawingBoard(cellDensity) {
 // Reset button
 const resetButton = document.createElement('button');
 resetButton.textContent = 'Reset Board';
+resetButton.style.float = 'right';
+resetButton.style.height = '50px';
+resetButton.style.marginTop = '35px';
+resetButton.style.marginRight = '20px';
+
 resetButton.addEventListener('click', () => {
     for (x = 0; x < drawingBoard.children.length; x++) {
         drawingBoard.children[x].style.backgroundColor = 'pink';
     }
 })
-header.appendChild(resetButton);
 
 // Grid fidelity button 
 const gridFidButton = document.createElement('button');
-gridFidButton.textContent = 'Change Pixel Density'
+gridFidButton.textContent = 'Change Pixel Density';
+gridFidButton.style.float = 'right';
+gridFidButton.style.height = '50px';
+gridFidButton.style.marginTop = '35px';
+
 gridFidButton.addEventListener('click', () => {
     let newGridFid = NaN;
     while (isNaN(newGridFid) || newGridFid < 0 || newGridFid > 100) {
@@ -142,7 +158,10 @@ gridFidButton.addEventListener('click', () => {
 
     renderDrawingBoard(gridFid);
 })
+
+// Render buttons
 header.appendChild(gridFidButton);
+header.appendChild(resetButton);
 
 ///////////////////////////////////////////////
 // Initial Render
