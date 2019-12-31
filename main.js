@@ -10,14 +10,16 @@ let gridSide = Number(Math.round((100 / gridFid) + 'e3') + 'e-3');
 
 // Default page sections assigned to variables and configured
 const html = document.querySelector('html');
-html.style.height = '1000px';
-html.style.width = '1000px';
+//html.style.height = '100%';
+//html.style.width = '100%';
 
 const header = document.querySelector('header');
+header.style.height = '130px';
+header.style.verticalAlign = 'center';
 
 const body = document.querySelector('body');
 body.style.width = '100%';
-body.style.display = 'inline';
+body.style.display = 'inline-block';
 body.style.textAlign = 'center';
 
 const footer = document.querySelector('footer');
@@ -27,6 +29,18 @@ const drawingBoard = document.createElement('div');
 drawingBoard.style.display = 'grid';
 drawingBoard.style.height = '960px';
 drawingBoard.style.width = '960px';
+drawingBoard.style.margin = 'auto';
+
+// Create page title for browser window/tab
+const title = document.createElement('title');
+title.textContent = 'Etch a Sketch!';
+header.appendChild(title);
+
+// Create page title & subtitle for header
+const pageTitle = document.createElement('h1');
+pageTitle.textContent = 'Etch a Sketch!';
+pageTitle.style.fontFamily = 'Helvetica';
+header.appendChild(pageTitle);
 
 ///////////////////////////////////////////////
 // Functions
@@ -114,6 +128,7 @@ gridFidButton.addEventListener('click', () => {
     } else {
         gridFid = newGridFid;
     }
+
     gridSide = Number(Math.round((100 / gridFid) + 'e4') + 'e-4');
     gridSidePercent = gridSide.toString() + '%';
     while (drawingBoard.children.length > 0) {
