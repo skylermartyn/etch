@@ -3,7 +3,7 @@
 ///////////////////////////////////////
 
 // Number of cells per side
-let gridFid = 100;
+let gridFid = 16;
 // Width of each cell (as a percent of drawing board)
 // rounded to 3rd decimal place
 let gridSide = Number(Math.round((100 / gridFid) + 'e3') + 'e-3');
@@ -106,10 +106,14 @@ gridFidButton.textContent = 'Change Pixel Density'
 gridFidButton.addEventListener('click', () => {
     let newGridFid = NaN;
     while (isNaN(newGridFid) || newGridFid < 0 || newGridFid > 100) {
-        newGridFid = Number(prompt('Enter desired number of squares per side(1 - 100):', '16'));
+        newGridFid = Number(prompt('Enter desired number of squares per side [1 - 100]:', '16'));
     }
-
-    gridFid = newGridFid;
+    
+    if (newGridFid == 0) {
+        return;
+    } else {
+        gridFid = newGridFid;
+    }
     gridSide = Number(Math.round((100 / gridFid) + 'e4') + 'e-4');
     gridSidePercent = gridSide.toString() + '%';
     while (drawingBoard.children.length > 0) {
