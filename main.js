@@ -1,3 +1,7 @@
+///////////////////////////////////////////////
+// Variables & Initial Configuration
+///////////////////////////////////////
+
 // Number of cells per side
 let gridFid = 100;
 // Width of each cell (as a percent of drawing board)
@@ -18,12 +22,15 @@ body.style.textAlign = 'center';
 
 const footer = document.querySelector('footer');
 
-
 // Element creation and config for drawing board
 const drawingBoard = document.createElement('div');
 drawingBoard.style.display = 'grid';
 drawingBoard.style.height = '960px';
 drawingBoard.style.width = '960px';
+
+///////////////////////////////////////////////
+// Functions
+///////////////////////////////////////
 
 /*
 Renders board based on desired number of cells per side
@@ -79,6 +86,10 @@ function renderDrawingBoard(cellDensity) {
     renderGridCells(cellDensity);
 }
 
+///////////////////////////////////////////////
+// Buttons
+///////////////////////////////////////
+
 // Reset button
 const resetButton = document.createElement('button');
 resetButton.textContent = 'Reset Board';
@@ -114,5 +125,8 @@ gridFidButton.addEventListener('click', () => {
 })
 header.appendChild(gridFidButton);
 
-// Initial render of drawing board
+///////////////////////////////////////////////
+// Initial Render
+///////////////////////////////////////
+
 renderDrawingBoard(gridFid);
